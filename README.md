@@ -10,7 +10,7 @@ Afișarea mecanicilor disponibili.
 Actualizarea detaliilor unei mașini sau a unei programări.
 Ștergerea unei mașini sau a unei programări din baza de date.
 Afișarea programărilor pentru un anumit mecanic.
-Adaugarea unui mecanic
+Adaugarea unui mecanic+client
 
 
 Tipuri de obiecte:
