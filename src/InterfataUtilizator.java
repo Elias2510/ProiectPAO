@@ -30,6 +30,7 @@ public class InterfataUtilizator {
         System.out.println("7. Ștergere mașină sau programare");
         System.out.println("8. Afișare programări pentru un anumit mecanic");
         System.out.println("9. Adăugare mecanic");
+        System.out.println("10. Adăugare client");
         System.out.println("0. Ieșire");
         System.out.println("=================\n");
     }

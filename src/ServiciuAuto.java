@@ -1,14 +1,19 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class ServiciuAuto {
     private List<Masina> listaMasini;
     private List<Programare> listaProgramari;
     private Set<Mecanic> listaMecanici;
+    private List<Client> listaClienti;
 
     public ServiciuAuto() {
         listaMasini = new ArrayList<>();
         listaProgramari = new ArrayList<>();
         listaMecanici = new HashSet<>();
+        listaClienti = new ArrayList<>();
     }
 
     // Metode pentru gestionarea listei de mașini
@@ -82,5 +87,14 @@ public class ServiciuAuto {
 
     public Set<Mecanic> getListaMecanici() {
         return listaMecanici;
+    }
+
+    // Metode pentru gestionarea listei de clienți
+    public void adaugaClient(Client client) {
+        listaClienti.add(client);
+    }
+
+    public List<Client> getListaClienti() {
+        return listaClienti;
     }
 }

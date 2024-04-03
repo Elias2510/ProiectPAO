@@ -47,6 +47,9 @@ public class Main {
                 case 9:
                     adaugaMecanic(serviciu,scanner);
                     break;
+                case 10:
+                    adaugaClient(serviciu,scanner);
+                    break;
                 case 0:
                     System.out.println("Aplicația a fost închisă.");
                     break;
@@ -70,6 +73,7 @@ public class Main {
         System.out.println("7. Ștergere mașină sau programare");
         System.out.println("8. Afișare programări pentru un anumit mecanic");
         System.out.println("9. Adaugare mecanic");
+        System.out.println("10. Adaugare client");
         System.out.println("0. Ieșire");
         System.out.println("=================\n");
     }
@@ -140,6 +144,20 @@ public class Main {
             }
         }
     }
+    private static void adaugaClient(ServiciuAuto serviciu, Scanner scanner) {
+        System.out.print("Introduceți ID-ul clientului: ");
+        int id = scanner.nextInt();
+        scanner.nextLine(); // Consumă newline
+        System.out.print("Introduceți numele clientului: ");
+        String nume = scanner.nextLine();
+        System.out.print("Introduceți numărul de telefon al clientului: ");
+        String telefon = scanner.nextLine();
+
+        Client client = new Client(id, nume, telefon);
+        serviciu.adaugaClient(client);
+        System.out.println("Client adăugat cu succes.");
+    }
+
 
     private static void afiseazaProgramari(ServiciuAuto serviciu) {
         List<Programare> programari = serviciu.getListaProgramari();
