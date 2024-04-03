@@ -62,6 +62,7 @@ public class Main {
         scanner.close();
     }
 
+
     private static void afisareMeniu() {
         System.out.println("\n===== Meniu =====");
         System.out.println("1. Adăugare mașină");

@@ -9,7 +9,7 @@ public class Mecanic {
         this.specializare = specializare;
     }
 
-    // Getteri și Setteri
+
     public int getId() {
         return id;
     }
