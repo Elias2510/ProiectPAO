@@ -16,6 +16,7 @@ Adaugarea unui mecanic+client
 Tipuri de obiecte:
 
 Mașină
+MasinaElectrica mostenita din clasa Masina
 Programare
 Mecanic
 ServiciuAuto (clasa serviciu)
@@ -23,3 +24,4 @@ Main (clasa principală)
 InterfataUtilizator (pentru interacțiunea cu utilizatorul)
 ListaMecanici (pentru gestionarea mecanicilor)
 ListaProgramari (pentru gestionarea programărilor)
+PiesaAuto
