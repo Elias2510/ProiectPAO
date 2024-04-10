@@ -13,6 +13,8 @@ public class Masina {
         this.anFabricatie = anFabricatie;
     }
 
+
+
     // Getteri și Setteri
     public int getId() {
         return id;

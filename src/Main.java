@@ -7,16 +7,17 @@ import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
-        ServiciuAuto serviciu = new ServiciuAuto(); // Inițializăm serviciul auto
+        ServiciuAuto serviciu = new ServiciuAuto();
+        InterfataUtilizator interfata = new InterfataUtilizator();
 
         Scanner scanner = new Scanner(System.in);
         int optiune;
 
         do {
-            afisareMeniu();
+            interfata.afisareMeniu();
             System.out.print("Introduceți opțiunea: ");
-            optiune = scanner.nextInt();
-            scanner.nextLine(); // Consumă newline
+            optiune = interfata.citireNumar();
+
 
             switch (optiune) {
                 case 1:
@@ -61,44 +62,39 @@ public class Main {
 
         scanner.close();
     }
-
-
-    private static void afisareMeniu() {
-        System.out.println("\n===== Meniu =====");
-        System.out.println("1. Adăugare mașină");
-        System.out.println("2. Programare mașină");
-        System.out.println("3. Afișare mașini");
-        System.out.println("4. Afișare programări");
-        System.out.println("5. Afișare mecanici");
-        System.out.println("6. Actualizare detaliilor unei mașini sau programări");
-        System.out.println("7. Ștergere mașină sau programare");
-        System.out.println("8. Afișare programări pentru un anumit mecanic");
-        System.out.println("9. Adaugare mecanic");
-        System.out.println("10. Adaugare client");
-        System.out.println("0. Ieșire");
-        System.out.println("=================\n");
-    }
-
     private static void adaugaMasina(ServiciuAuto serviciu, Scanner scanner) {
         System.out.print("Introduceți ID-ul mașinii: ");
         int id = scanner.nextInt();
-        scanner.nextLine(); // Consumă newline
+        scanner.nextLine();
         System.out.print("Introduceți marca mașinii: ");
         String marca = scanner.nextLine();
         System.out.print("Introduceți modelul mașinii: ");
         String model = scanner.nextLine();
         System.out.print("Introduceți anul fabricației mașinii: ");
         int anFabricatie = scanner.nextInt();
-        scanner.nextLine(); // Consumă newline
+        scanner.nextLine();
 
-        Masina masina = new Masina(id, marca, model, anFabricatie);
-        serviciu.adaugaMasina(masina);
-        System.out.println("Mașină adăugată cu succes.");
+        System.out.print("Este mașina electrică? (da/nu): ");
+        String raspuns = scanner.nextLine();
+        if (raspuns.equalsIgnoreCase("da")) {
+            System.out.print("Introduceți autonomia mașinii: ");
+            int autonomie = scanner.nextInt();
+            scanner.nextLine();
+
+            Masina masina = new MasinaElectrica(id, marca, model, anFabricatie, autonomie);
+            serviciu.adaugaMasina(masina);
+            System.out.println("Mașină electrică adăugată cu succes.");
+        } else {
+            Masina masina = new Masina(id, marca, model, anFabricatie);
+            serviciu.adaugaMasina(masina);
+            System.out.println("Mașină adăugată cu succes.");
+        }
     }
+
     private static void adaugaMecanic(ServiciuAuto serviciu, Scanner scanner) {
         System.out.print("Introduceți ID-ul mecanicului: ");
         int id = scanner.nextInt();
-        scanner.nextLine(); // Consumă newline
+        scanner.nextLine();
         System.out.print("Introduceți numele mecanicului: ");
         String nume = scanner.nextLine();
         System.out.print("Introduceți specializarea mecanicului: ");
@@ -189,7 +185,7 @@ public class Main {
         System.out.println("1. Detalii mașină");
         System.out.println("2. Detalii programare");
         int optiune = scanner.nextInt();
-        scanner.nextLine(); // Consumă newline
+        scanner.nextLine();
 
         switch (optiune) {
             case 1:
@@ -208,7 +204,7 @@ public class Main {
         afiseazaMasini(serviciu);
         System.out.print("Introduceți ID-ul mașinii pentru actualizare: ");
         int idMasina = scanner.nextInt();
-        scanner.nextLine(); // Consumă newline
+        scanner.nextLine();
 
         Masina masina = serviciu.cautaMasina(idMasina);
         if (masina == null) {
@@ -256,7 +252,7 @@ public class Main {
         System.out.println("1. Mașină");
         System.out.println("2. Programare");
         int optiune = scanner.nextInt();
-        scanner.nextLine(); // Consumă newline
+        scanner.nextLine();
 
         switch (optiune) {
             case 1:
@@ -288,7 +284,7 @@ public class Main {
         afiseazaProgramari(serviciu);
         System.out.print("Introduceți ID-ul programării pentru ștergere: ");
         int idProgramare = scanner.nextInt();
-        scanner.nextLine(); // Consumă newline
+        scanner.nextLine();
 
         if (serviciu.stergeProgramare(idProgramare)) {
             System.out.println("Programarea a fost ștearsă cu succes.");
@@ -312,4 +308,3 @@ public class Main {
         }
     }
 }
-
