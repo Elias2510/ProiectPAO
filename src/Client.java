@@ -9,7 +9,7 @@ public class Client {
         this.telefon = telefon;
     }
 
-    // Getteri și Setteri
+
     public int getId() {
         return id;
     }

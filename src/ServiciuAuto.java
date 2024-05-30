@@ -16,7 +16,7 @@ public class ServiciuAuto {
         listaClienti = new ArrayList<>();
     }
 
-    // Metode pentru gestionarea listei de mașini
+
     public void adaugaMasina(Masina masina) {
         listaMasini.add(masina);
     }
@@ -43,7 +43,7 @@ public class ServiciuAuto {
         return false;
     }
 
-    // Metode pentru gestionarea listei de programări
+
     public void programareMasina(Programare programare) {
         listaProgramari.add(programare);
     }

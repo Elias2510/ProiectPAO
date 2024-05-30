@@ -15,7 +15,7 @@ public class Masina {
 
 
 
-    // Getteri și Setteri
+
     public int getId() {
         return id;
     }
